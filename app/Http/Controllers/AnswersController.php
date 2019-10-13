@@ -32,7 +32,7 @@ class AnswersController extends Controller
 
         $answers = [];
         foreach($distinct_user_id as $user_id){
-            $answers[] = Answer::where('user_id', $user_id->user_id)->where('post_id', $request->post_id)->orderBy('created_at', 'desc')->get();
+            $answers[] = Answer::where('user_id', $user_id->user_id)->where('post_id', $request->post_id)->get();
         }
         $post = Post::where('id', $request->post_id)->first();
 

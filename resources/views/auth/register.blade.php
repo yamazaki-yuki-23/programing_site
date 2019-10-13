@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header bg-secondary text-white">新規登録
                         <button type="button" class="close">
-                            <a id="register" href="{{route('top') }}">&times;</a>
+                            <a class="zoom" id="register" href="{{route('top') }}">&times;</a>
                         </button>
                     </div>
 
@@ -66,7 +66,7 @@
                             </div>
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col-md-6 offset-md-4 text-right">
                                     <button type="submit" class="btn btn-primary">
                                         登録
                                     </button>

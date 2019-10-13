@@ -94,6 +94,17 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            a {
+                display: inline-block;
+                transition: .3s;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                }
+                a:hover {
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+            }
         </style>
     </head>
     <body style="background-image: url('/image/background.jpg')">
@@ -125,14 +136,11 @@
                         TECHQUEはプログラミング学習で生じる疑問・問題を解決し、理解を深めるサービスです。
                     </div>
                 <div class="links">
-                    <a href="{{route('young') }}">質問を見る</a>
+                    <a href="{{route('young') }}" style="hover:red">質問を見る</a>
                     <a href="{{route('young-add') }}">質問を投稿する</a>
                 </div>
             </div>
         </div>
         <script src=" {{ mix('js/app.js') }} "></script>
-        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
     </body>
 </html>

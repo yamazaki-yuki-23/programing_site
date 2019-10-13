@@ -70,7 +70,7 @@ class BoyController extends Controller
         // $answers = Answer::where('post_id', $post_id)->get();
         $answers = [];
         foreach($distinct_user_id as $user_id){
-            $answers[] = Answer::orderBy('created_at', 'desc')->where('user_id', $user_id->user_id)->where('post_id', $post_id)->get();
+            $answers[] = Answer::where('user_id', $user_id->user_id)->where('post_id', $post_id)->get();
         }
         // dd($answers);
 
@@ -88,7 +88,7 @@ class BoyController extends Controller
         }else{
             $defaultState = true;
         }
-        // dd($post->id,Auth::id());
+        // dd($post->content);
         return view('show',[
             'post' => $post,
             'answers' => $answers,

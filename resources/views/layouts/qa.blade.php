@@ -74,13 +74,23 @@
             #login,#register {
                 color:black;
             }
+            .zoom {
+                display: inline-block;
+                transition: .3s;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+            .zoom:hover {
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+            }
         </style>
     </head>
     <body>
         <div id="cover">
             <div id="app">
                 <div class="top-left top">
-                    <a href="{{url('/') }}"  style="font-size:1.5em;">TECHQUE</a>
+                    <a class="zoom" href="{{url('/') }}"  style="font-size:1.5em;">TECHQUE</a>
                 </div>
                 <div class="top-right links">
                     @auth
@@ -92,14 +102,14 @@
                                 </a>
 
                                 <div class="dropdown-menu mr-4">
-                                    <a class="dropdown-item" href="{{route('mypage')}}">マイページ</a>
-                                    <a class="dropdown-item" href="{{route('getLogout') }}">ログアウト</a>
+                                    <a class="dropdown-item zoom" href="{{route('mypage')}}">マイページ</a>
+                                    <a class="dropdown-item zoom" href="{{route('getLogout') }}">ログアウト</a>
                                 </div>
                             </div>
                         </div>
                     @else
-                        <a href="{{route('login') }}">ログイン</a>
-                        <a href="{{route('register') }}">登録</a>
+                        <a class="zoom" href="{{route('login') }}">ログイン</a>
+                        <a class="zoom" href="{{route('register') }}">登録</a>
                     @endauth
                 </div>
                 <div class="py-5"></div>

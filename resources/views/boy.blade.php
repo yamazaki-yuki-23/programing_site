@@ -2,28 +2,28 @@
 
 
 @section('content')
-    <div class="container mt-4">
-        <form method="POST" action="{{ route('search') }}">
+    <div class="container mt-2">
+        <form method="GET" action="{{ route('search') }}">
             @csrf
             <div class="col-12 clearfix">
                 <div class="float-right">
                     <div class="input-group">
-                        <input type="text" class="form-control  {{ $errors->has('keyword') ? 'is-invalid' : '' }}" name="keyword" value="{{ old('keyword') }}" placeholder="キーワードで検索">
+                        <input type="text" class="form-control  {{ $errors->has('keyword') ? 'is-invalid' : '' }}" name="keyword" value="{{ old('keyword') }}" placeholder="キーワードで検索">                        
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit">検索</button>
+                        </span>
                         @if ($errors->has('keyword'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('keyword') }}
                             </div>
                         @endif
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" type="submit">検索</button>
-                        </span>
                     </div>
                 </div>
             </div>
         </form>
     </div>
 
-    <div class="container mt-4">
+    <div class="container mt-5">
         <div class="card text-center">
             <nav class="bg-light">
                 <div class="nav nav-tabs"  style="height:40px;" >
@@ -34,36 +34,44 @@
                 </div>
             </nav>  
             <div class="tab-content" id="nav-tabContent">
-                    @if (count($postList) === 0)
-                        <div class="alert alert-danger" role="alert">選択に一致する質問はありませんでした</div>
-                    @else
+                @if (count($postList) === 0)
+                    <div class="alert alert-danger" role="alert">選択に一致する質問はありませんでした</div>
+                @else
 
-                        @foreach ($postList as $post)
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-2">
-                                            <p>{{$post->state}}</p>
-                                        </div>
-                                        <div class="col-10">
-                                            <a  href="{{route('show', ['post' => $post->id]) }}">
-                                                <h2 class="card-title text-left">{{$post->title }}</h2>
-                                            </a>
-                                            <h6 class="card-subtitle mb-2 text-left text-muted">{{$post->language}}</h6>
-                                            <h6 class="card-subtitle mb-2 text-right text-muted">{{$post->poster_name}}さん 
-                                                <span class="pl-4">
-                                                    投稿日時 {{$post->created_at->format('Y.m.d') }}
-                                                </span>
-                                            </h6>
-                                        </div>
+                    @foreach ($postList as $post)
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    @if($post->state == '解決済')
+                                    <div class="col-2"><p><span class="badge badge-danger">{{$post->state}}</span></p></div>
+                                    @else
+                                    <div class="col-2"><p><span class="badge badge-dark">{{$post->state}}</span></p></div>
+                                    @endif
+                                    <div class="col-10">
+                                        <a  href="{{route('show', ['post' => $post->id]) }}">
+                                            <h4 class="card-title text-left">{{$post->title }}</h4>
+                                        </a>
+                                        <h6 class="card-subtitle mb-2 text-left text-muted"><span class="badge badge-light">{{$post->language}}</span></h6>
+                                        <h6 class="card-subtitle mb-2 text-right text-muted">{{$post->poster_name}}さん 
+                                            <span class="pl-4">
+                                                投稿日時 {{$post->created_at->format('Y.m.d') }}
+                                            </span>
+                                        </h6>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
-                    @endif  
+                        </div>
+                    @endforeach
+                    @if($postList->hasPages())
                     <div class="d-flex justify-content-center mt-4 mb-2">
                         {{ $postList->links() }}
                     </div>
+                    @else
+                        <div class="d-flex justify-content-center mt-4 mb-2">
+                            <a class="current" href="#"><h4>1</h4></a>
+                        </div>
+                    @endif
+                @endif  
             </div>
         </div>
     </div>
