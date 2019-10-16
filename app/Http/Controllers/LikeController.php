@@ -23,5 +23,4 @@ class LikeController extends Controller
         $likeCount = count(Like::where('answer_id', $answer->id)->get());
         return response()->json(['likeCount' => $likeCount]);
     }
-
 }

@@ -116,7 +116,6 @@
                             <a class="btn btn-info btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; font-size:1.5em;">
                                 <span style="color:white;">{{Auth::user()->name }}</span>
                             </a>
-
                             <div class="dropdown-menu mr-4">
                                 <a class="dropdown-item" href="{{route('mypage') }}">マイページ</a>
                                 <a class="dropdown-item" href="{{route('getLogout') }}">ログアウト</a>
@@ -132,12 +131,12 @@
                 <div class="title m-b-md">
                     TECHQUE    
                 </div>
-                    <div class="m-b-md">
-                        TECHQUEはプログラミング学習で生じる疑問・問題を解決し、理解を深めるサービスです。
-                    </div>
+                <div class="m-b-md">
+                    TECHQUEはプログラミング学習で生じる疑問・問題を解決し、理解を深めるサービスです。
+                </div>
                 <div class="links">
-                    <a href="{{route('young') }}" style="hover:red">質問を見る</a>
-                    <a href="{{route('young-add') }}">質問を投稿する</a>
+                    <a href="{{route('list') }}" style="hover:red">質問を見る</a>
+                    <a href="{{route('ask') }}">質問を投稿する</a>
                 </div>
             </div>
         </div>

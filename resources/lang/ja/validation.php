@@ -124,6 +124,7 @@ return [
         'content' => '質問内容',
         'answer' => '回答内容',
         'keyword' => 'キーワード',
+        'password' => 'パスワード',
     ],
 
 ];

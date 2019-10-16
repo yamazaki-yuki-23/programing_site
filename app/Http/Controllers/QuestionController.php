@@ -10,42 +10,50 @@ use App\Like;
 use App\Good;
 use Illuminate\Support\Facades\Auth;
 
-class AnswersController extends Controller
+class QuestionController extends Controller
 {
-    public function store(Request $request, Post $post){
-        $params = $request->validate([
-            'answer' => 'required',
-        ]);
-        $answer = new Answer;
-        $answer->post_id = $request->post_id;
-        $answer->user_id = Auth::user()->id;
-        $answer->answer_name = Auth::user()->name;
-        $answer->content = $request->answer;
-        $answer->save();
-        
-        //いいね数、いいねボタン押下の判定による情報を取得
-        $like_item = $this->like($request->post_id);
+    public function index(){
+        $postList = Post::orderBy('created_at', 'desc')->paginate(10);
+        return view('list')->with('postList', $postList);
+    }
 
-        $post = Post::findOrFail($request->post_id);
-        $unique_user_id = Answer::where('post_id', $request->post_id)->groupBy('user_id')->get('user_id');
+    public function ask(){
+        return view('ask');
+    }
+
+    public function store(Request $request){
+        $params = $request->validate([
+            'title' => 'required|max:50',
+            'language' => 'required',
+            'content' => 'required',
+        ]);
+        $post = new Post;
+        $post->poster_name = Auth::user()->name;
+        $post->user_id = Auth::user()->id;
+        $post->title = $request->title;
+        $post->language = $request->language;
+        $post->content = $request->content;
+        $post->save();
+        return redirect('list');
+    }
+
+    public function show(Answer $answer ,$post_id){
+        //いいね数、いいねボタン押下の判定による情報を取得
+        $like_item = $this->like($post_id);
+
+        $post = Post::findOrFail($post_id);
+        $unique_user_id = Answer::where('post_id', $post_id)->groupBy('user_id')->get('user_id');
         //ユーザーごとの回答を取得
         $answers = [];
         foreach($unique_user_id as $user_id){
-            $answers[] = Answer::where('user_id', $user_id->user_id)->where('post_id', $request->post_id)->get();
+            $answers[] = Answer::where('user_id', $user_id->user_id)->where('post_id', $post_id)->get();
         }
         $count_answers = count($answers);
 
         //高評価数の取得、高評価ボタン押下の判定による情報を取得
-        $good_item = $this->good($request->post_id);
+        $good_item = $this->good($post_id);
 
         //質問のステータスを取得
-        $defaultState = "";
-        if(($post->state) == '未解決'){
-            $defaultState = false;
-        }else{
-            $defaultState = true;
-        }
-
         $defaultState = "";
         if(($post->state) == '未解決'){
             $defaultState = false;
@@ -111,6 +119,5 @@ class AnswersController extends Controller
         ];
         return $good_item;
     }
-
 
 }

@@ -24,6 +24,6 @@ class NavController extends Controller
                 $postList = Post::orderBy('total_goods', 'desc')->orderBy('created_at', 'desc')->paginate(5);
                 break;
             }
-        return view('boy')->with('postList', $postList);
+        return view('list')->with('postList', $postList);
     }
 }

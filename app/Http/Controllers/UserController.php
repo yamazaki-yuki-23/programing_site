@@ -16,8 +16,7 @@ class UserController extends Controller
     }
 
     public function mypage(){
-        //ユーザー名→Auth::user()->name、ユーザーID→Auth::id()
-        //質問解決済みの総数取得
+        //質問解決済みの総数
         $count_solutions = Post::where('user_id', Auth::id())->where('state', '解決済')->count();
         //総質問数
         $count_posts = Post::where('user_id', Auth::id())->count();
@@ -42,7 +41,7 @@ class UserController extends Controller
         $unsolved_post = Post::where('user_id', Auth::id())->where('state', '未解決')->orderBy('created_at', 'desc')->paginate(10);
         //解決済の質問
         $solved_post = Post::where('user_id', Auth::id())->where('state', '解決済')->orderBy('created_at', 'desc')->paginate(10);
-
+        //回答した質問を取得
         $distinct_post_id = Answer::where('user_id', Auth::id())->groupBy('post_id')->get('post_id');
         $comment_post = [];
         foreach($distinct_post_id as $post_id){
@@ -63,10 +62,4 @@ class UserController extends Controller
             'comment_post' => $comment_post,
         ]);
     }
-
-    public function post_list(){
-        dd('aaa');
-    }
-
-
 }

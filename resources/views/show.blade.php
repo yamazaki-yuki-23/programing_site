@@ -17,8 +17,7 @@
                         </span>
                     </h6>
                     <div class="border-top p-3 mb-1">
-                    <p>{!! nl2br(e($post->content)) !!}</P>
-                        <!-- <p>{{$post->content}}</p> -->
+                        <p>{!! nl2br(e($post->content)) !!}</P>
                         <div class="row ml-1">
                             @if($user_id == null)
                                 <div class="pr-1">
@@ -46,8 +45,8 @@
                         </div>
                     </div> 
                 </div>    
+
                 @auth
-                    <!--回答入力-->
                     <div class="text-center mr-5  my-5">
                         <form method="POST" action="{{route('answer')}}">
                             @csrf
@@ -71,76 +70,75 @@
                     </div>
 
                     
-                    @if(count($answers) === 0)
+                    @if($count_answers === 0)
                         <div class="text-center alert alert-info mt-3" role="alert"　style="margin-left:4%; margin-right:8.5%;">まだ回答がついていません</div>
                     @else
-                        <?php $i = 0; ?>
-                        <?php $x = 0; ?>
+                        <?php $like_index = 0; ?>
+                        <?php $answer_index = 0; ?>
                         <?php $count = count($answers); ?>
-                        @for($y=0; $y<$count; $y++)
-                            @if(count($answers[$x]) === 1)
+                        @for($answer_number=0; $answer_number<$count_answers; $answer_number++)
+                            @if(count($answers[$answer_index]) === 1)
                                 <div class="text-center mr-5">
-                                    <p class="text-left ml-5  border-top mr-5 pt-3">{{$answers[$x][0]->content}}</p>
+                                    <p class="text-left ml-5  border-top mr-5 pt-3">{{$answers[$answer_index][0]->content}}</p>
                                     <div class="text-right mr-4 mb-3 text-muted"　style="font-size:0.9rem;">
-                                        <span>{{$answers[$x][0]->answer_name}}さん</span>
-                                        <span class="pl-1 mr-3">投稿：{{$answers[$x][0]->created_at}}</span><br>
+                                        <span>{{$answers[$answer_index][0]->answer_name}}さん</span>
+                                        <span class="pl-1 mr-3">投稿：{{$answers[$answer_index][0]->created_at}}</span><br>
                                     </div>
                                     <div class="text-left mx-5  border-bottom pb-3">
                                         <like
-                                            :answer-id="{{json_encode($answers[$x][0]->id)}}"
-                                            :user-id="{{json_encode($answers[$x][0]->user_id)}}"
-                                            :default-Liked="{{json_encode($defaultLiked[$i])}}"
-                                            :default-Count="{{json_encode($defaultCount[$i])}}"
+                                            :answer-id="{{json_encode($answers[$answer_index][0]->id)}}"
+                                            :user-id="{{json_encode($user_id)}}"
+                                            :default-Liked="{{json_encode($defaultLiked[$like_index])}}"
+                                            :default-Count="{{json_encode($defaultLikeCount[$like_index])}}"
                                         ></like>
                                     </div>
-                                    <?php $i++; ?>
                                 </div>
-                                <?php $x++; ?>
+                                <?php $answer_index++; $like_index++; ?>
                             @else
-                                <?php $var = count($answers[$x]) ?>  
+                                <?php $other_answer_number = count($answers[$answer_index]) ?>  
                                 <div class="text-center mr-5">
-                                    <p class="text-left ml-5  border-top mr-5 pt-3">{{$answers[$x][0]->content}}</p>
+                                    <p class="text-left ml-5  border-top mr-5 pt-3">{{$answers[$answer_index][0]->content}}</p>
                                     <div class="text-right mr-4 mb-3 text-muted"　style="font-size:0.9rem;">
-                                        <span>{{$answers[$x][0]->answer_name}}さん</span>
-                                        <span class="pl-1 mr-3">投稿：{{$answers[$x][0]->created_at}}</span><br>
+                                        <span>{{$answers[$answer_index][0]->answer_name}}さん</span>
+                                        <span class="pl-1 mr-3">投稿：{{$answers[$answer_index][0]->created_at}}</span><br>
                                     </div>
                                     <div class="text-left mx-5  border-bottom pb-3">
                                         <like
-                                            :answer-id="{{json_encode($answers[$x][0]->id)}}"
-                                            :user-id="{{json_encode($answers[$x][0]->user_id)}}"
-                                            :default-Liked="{{json_encode($defaultLiked[$i])}}"
-                                            :default-Count="{{json_encode($defaultCount[$i])}}"
+                                            :answer-id="{{json_encode($answers[$answer_index][0]->id)}}"
+                                            :user-id="{{json_encode($user_id)}}"
+                                            :default-Liked="{{json_encode($defaultLiked[$like_index])}}"
+                                            :default-Count="{{json_encode($defaultLikeCount[$like_index])}}"
                                         ></like>
                                     </div>
-                                    <?php $i++; ?>
+                                    <?php $like_index++; ?>
                                 </div>
 
                                 <div class="panel-group ml-4 mr-5 mb-5">
                                     <div class="panel panel-default">
                                         <div class="panel-heading col-6">
                                             <p class="panel-title">
-                                                <a class="pl-2" data-toggle="collapse" href="#collapse{{$x}}">その他の返信(<?php echo $var-1 ;?>件)を表示</a>
+                                                <a class="pl-2" data-toggle="collapse" href="#collapse{{$answer_index}}">その他の返信(<?php echo $other_answer_number-1 ;?>件)を表示</a>
                                             </p>
                                         </div>
-                                        <div id="collapse{{$x}}" class="panel-collapse collapse pl-4 pr-5 mb-2 col-11">
+                                        <div id="collapse{{$answer_index}}" class="panel-collapse collapse pl-4 pr-5 mb-2 col-11">
                                             <ul class="list-group">
-                                                @for($h=1; $h<$var; $h++)
-                                                    <li class="list-group-item">{{$answers[$x][$h]->content}}
-                                                        <p class="text-right">投稿:{{$answers[$x][$h]->created_at}}</p>
+                                                @for($tmp=1; $tmp<$other_answer_number; $tmp++)
+                                                    <li class="list-group-item">{{$answers[$answer_index][$tmp]->content}}
+                                                        <p class="text-right">投稿:{{$answers[$answer_index][$tmp]->created_at}}</p>
                                                         <like
-                                                            :answer-id="{{json_encode($answers[$x][$h]->id)}}"
-                                                            :user-id="{{json_encode($answers[$x][$h]->user_id)}}"
-                                                            :default-Liked="{{json_encode($defaultLiked[$i])}}"
-                                                            :default-Count="{{json_encode($defaultCount[$i])}}"
+                                                            :answer-id="{{json_encode($answers[$answer_index][$tmp]->id)}}"
+                                                            :user-id="{{json_encode($user_id)}}"
+                                                            :default-Liked="{{json_encode($defaultLiked[$like_index])}}"
+                                                            :default-Count="{{json_encode($defaultLikeCount[$like_index])}}"
                                                         ></like>
-                                                        <?php $i++; ?>
+                                                        <?php $like_index++; ?>
                                                     </li>
                                                 @endfor
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <?php $x++; ?>
+                                <?php $answer_index++; ?>
                             @endif
                         @endfor
                         <div class="text-center mr-5 mt-5">
@@ -151,71 +149,69 @@
                     @endif
 
                 @else
-                    @if(count($answers) === 0)
+                    @if($count_answers === 0)
                         <div class="text-center alert alert-info my-5 mx-5" role="alert">まだ回答がついていません</div>
                     @else
-                        <?php $i = 0; ?>
-                        <?php $x = 0; ?>
+                        <?php $like_index = 0; ?>
+                        <?php $answer_index = 0; ?>
                         <?php $count = count($answers); ?>
-                        @for($y=0; $y<$count; $y++)
-                            @if(count($answers[$x]) === 1)
+                        @for($answer_number=0; $answer_number<$count_answers; $answer_number++) 
+                            @if(count($answers[$answer_index]) === 1)
                                 <div class="text-center mr-5 my-5">
-                                    <p class="text-left ml-5  border-top mr-5 pt-3">{{$answers[$x][0]->content}}</p>
+                                    <p class="text-left ml-5  border-top mr-5 pt-3">{{$answers[$answer_index][0]->content}}</p>
                                     <div class="text-right mr-4 mb-3 text-muted"　style="font-size:0.9rem;">
-                                        <span>{{$answers[$x][0]->answer_name}}さん</span>
-                                        <span class="pl-1 mr-3">投稿：{{$answers[$x][0]->created_at}}</span><br>
+                                        <span>{{$answers[$answer_index][0]->answer_name}}さん</span>
+                                        <span class="pl-1 mr-3">投稿：{{$answers[$answer_index][0]->created_at}}</span><br>
                                     </div>
                                     <div class="text-left mx-5  border-bottom pb-3">
-                                        <a class="btn btn-primary" href="{{route('warn')}}" role="button">いいね{{$defaultCount[$i]}}</a>
+                                        <a class="btn btn-primary" href="{{route('warn')}}" role="button">いいね{{$defaultLikeCount[$like_index]}}</a>
                                     </div>
                                 </div>
-                                <?php $x++; ?>
+                                <?php $answer_index++; $like_index++; ?>
                             @else
-                                <?php $var = count($answers[$x]) ?>  
+                                <?php $other_answer_number = count($answers[$answer_index]) ?>  
                                 <div class="text-center mr-5 mt-5">
-                                    <p class="text-left ml-5  border-top mr-5 pt-3">{{$answers[$x][0]->content}}</p>
+                                    <p class="text-left ml-5  border-top mr-5 pt-3">{{$answers[$answer_index][0]->content}}</p>
                                     <div class="text-right mr-4 mb-3 text-muted"　style="font-size:0.9rem;">
-                                        <span>{{$answers[$x][0]->answer_name}}さん</span>
-                                        <span class="pl-1 mr-3">投稿：{{$answers[$x][0]->created_at}}</span><br>
+                                        <span>{{$answers[$answer_index][0]->answer_name}}さん</span>
+                                        <span class="pl-1 mr-3">投稿：{{$answers[$answer_index][0]->created_at}}</span><br>
                                     </div>
                                     <div class="text-left mx-5  border-bottom pb-3">
-                                        <a class="btn btn-primary" href="{{route('warn')}}" role="button">いいね{{$defaultCount[$i]}}</a>
+                                        <a class="btn btn-primary" href="{{route('warn')}}" role="button">いいね{{$defaultLikeCount[$like_index]}}</a>
                                     </div>
                                 </div>
+                                <?php $like_index++; ?>
 
                                 <div class="panel-group ml-4 mr-5 mb-5">
                                     <div class="panel panel-default">
                                         <div class="panel-heading col-6">
                                             <p class="panel-title">
-                                                <a class="pl-2" data-toggle="collapse" href="#collapse{{$x}}">その他の返信(<?php echo $var-1 ;?>件)を表示</a>
+                                                <a class="pl-2" data-toggle="collapse" href="#collapse{{$answer_index}}">その他の返信(<?php echo $other_answer_number-1 ;?>件)を表示</a>
                                             </p>
                                         </div>
-                                        <div id="collapse{{$x}}" class="panel-collapse collapse pl-4 pr-5 mb-2 col-11">
+                                        <div id="collapse{{$answer_index}}" class="panel-collapse collapse pl-4 pr-5 mb-2 col-11">
                                             <ul class="list-group">
-                                                @for($i=1; $i<$var; $i++)
-                                                    <li class="list-group-item">{{$answers[$x][$i]->content}}
-                                                        <p class="text-right">投稿:{{$answers[$x][$i]->created_at}}</p>
-                                                        <a class="btn btn-primary" href="{{route('warn')}}" role="button">いいね{{$defaultCount[$i]}}</a>
+                                                @for($tmp=1; $tmp<$other_answer_number; $tmp++)
+                                                    <li class="list-group-item">{{$answers[$answer_index][$tmp]->content}}
+                                                        <p class="text-right">投稿:{{$answers[$answer_index][$tmp]->created_at}}</p>
+                                                        <a class="btn btn-primary" href="{{route('warn')}}" role="button">いいね{{$defaultLikeCount[$like_index]}}</a>
                                                     </li>
+                                                    <?php $like_index++; ?>
                                                 @endfor
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <?php $x++; ?>
+                                <?php $answer_index++; ?>
                             @endif
                         @endfor
                     @endif
-                    <div class="text-center ">
+                    <div class="text-center">
                         <a href="{{route('warn')}}">
-                            <input type="button" class="btn btn-warning btn-lg" value="この質問に回答する" />                    
+                            <input type="button" class="btn btn-warning btn-lg" value="この質問に回答する">                    
                         </a>
                     </div>
                 @endauth
-
-
-
-
             </div>
         </section>
     </div>

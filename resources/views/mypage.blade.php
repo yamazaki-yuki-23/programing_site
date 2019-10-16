@@ -44,13 +44,13 @@
                         </div>                    
                     </div>
                 </div>
-                <!-- 質問一覧の処理-->
+
                 <div class="tab-pane fade" id="post" role="tabpanel" aria-labelledby="post-tab">
                     <div class="card mt-5">
                         <h3>質問一覧</h3>
                         <table class="mt-2 table table-bordered">
                             <thead>
-                                <tr>
+                                <tr class="bg-light">
                                     <th scope="col">総質問数</th>
                                     <th scope="col">未解決</th>
                                     <th scope="col">解決済</th>
@@ -99,9 +99,15 @@
                                             </div>
                                         </div>
                                     @endforeach
-                                    <div class="d-flex justify-content-center mt-2 mb-2">
-                                        {{ $total_posts->links() }}
-                                    </div>
+                                    @if($total_posts->hasPages())
+                                        <div class="d-flex justify-content-center mt-2 mb-2">
+                                            {{ $total_posts->links() }}
+                                        </div>
+                                    @else
+                                        <div class="d-flex justify-content-center mt-2 mb-2">
+                                            <a class="current" href="#"><h4>1</h4></a>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
 
@@ -125,9 +131,15 @@
                                             </div>
                                         </div>
                                     @endforeach
-                                    <div class="d-flex justify-content-center mt-2 mb-2">
-                                        {{ $unsolved_post->links() }}
-                                    </div>
+                                    @if($unsolved_post->hasPages())
+                                        <div class="d-flex justify-content-center mt-2 mb-2">
+                                            {{ $unsolved_post->links() }}
+                                        </div>
+                                    @else
+                                        <div class="d-flex justify-content-center mt-2 mb-2">
+                                            <a class="current" href="#"><h4>1</h4></a>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
 
@@ -151,24 +163,29 @@
                                             </div>
                                         </div>
                                     @endforeach
-                                    <div class="d-flex justify-content-center mt-2 mb-2">
-                                        {{ $solved_post->links() }}
-                                    </div>
+                                    @if($solved_post->hasPages())
+                                        <div class="d-flex justify-content-center mt-2 mb-2">
+                                            {{ $solved_post->links() }}
+                                        </div>
+                                    @else
+                                        <div class="d-flex justify-content-center mt-2 mb-2">
+                                            <a class="current" href="#"><h4>1</h4></a>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 回答一覧の処理-->
                 <div class="tab-pane fade" id="answer" role="tabpanel" aria-labelledby="answer-tab">
                     <div class="card mt-5">
                         <h3>回答一覧</h3>
                         <table class="mt-2 table table-bordered">
                             <thead>
-                                <tr>
-                                <th scope="col">総回答数</th>
-                                <th scope="col">高評価</th>
+                                <tr class="bg-light">
+                                    <th scope="col">総回答数</th>
+                                    <th scope="col">高評価</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -196,23 +213,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
-                            <div class="d-flex justify-content-center mt-2 mb-2">
-                                {{ $total_posts->links() }}
-                            </div>
+                            @endforeach                            
                         </div>
                     </div>
-
-
-
-
-
                 </div>
-                
-
             </div>
-            
-
         </div>
     </div>
 @endsection   

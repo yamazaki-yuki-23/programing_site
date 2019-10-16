@@ -12,14 +12,14 @@
                 @if ($count === 0)
                     <div class="mt-5 text-danger" role="alert">選択に一致する質問はありませんでした</div>
                 @else
-                    @foreach ($posts as $post)
+                    @foreach ($postList as $post)
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
                                     @if($post->state == '解決済')
-                                    <div class="col-2"><p><span class="badge badge-danger">{{$post->state}}</span></p></div>
+                                        <div class="col-2"><p><span class="badge badge-danger">{{$post->state}}</span></p></div>
                                     @else
-                                    <div class="col-2"><p><span class="badge badge-dark">{{$post->state}}</span></p></div>
+                                        <div class="col-2"><p><span class="badge badge-dark">{{$post->state}}</span></p></div>
                                     @endif
                                     <div class="col-10">
                                         <a  href="{{route('show', ['post' => $post->id]) }}">
@@ -27,7 +27,7 @@
                                         </a>
                                         <h6 class="card-subtitle mb-2 text-left text-muted"><span class="badge badge-light">{{$post->language}}</span></h6>
                                         <h6 class="card-subtitle mb-2 text-right text-muted">{{$post->poster_name}}さん 
-                                            <span class="pl-4">
+                                            <span class="pl-1">
                                                 投稿日時 {{$post->created_at->format('Y.m.d') }}
                                             </span>
                                         </h6>
@@ -36,9 +36,10 @@
                             </div>
                         </div>
                     @endforeach
-                    @if($posts->hasPages())
+                    
+                    @if($postList->hasPages())
                     <div class="d-flex justify-content-center mt-4 mb-2">
-                        {{ $posts->appends(request()->input())->links() }}
+                        {{ $postList->appends(request()->input())->links() }}
                     </div>
                     @else
                         <div class="d-flex justify-content-center mt-4 mb-2">
