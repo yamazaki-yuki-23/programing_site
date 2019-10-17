@@ -17,7 +17,9 @@ class CreateAnswersTable extends Migration
             $table->increments('id');
             $table->integer('post_id');
             $table->integer('user_id');
+            $table->string('answer_name',60);           
             $table->text('content');
+            $table->integer('total_likes')->default(0);;
             $table->timestamps();
         });
     }

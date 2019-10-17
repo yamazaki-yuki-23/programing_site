@@ -17,8 +17,6 @@ class CreateLikesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('answer_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('answer_id')->references('id')->on('answers')->onDelete('cascade');
             $table->timestamps();
         });
     }
