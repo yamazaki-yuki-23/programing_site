@@ -105,7 +105,7 @@ class QuestionController extends Controller
     public function good($post_id){
         //高評価数の取得
         $defaultGoodCount = Good::where('post_id', $post_id)->count();
-
+        $defaultEvaluated = [];
         //ログインユーザーが高評価ボタンを押下しているか判定
         $defaultEvaluated = Good::where('user_id', Auth::id())->where('post_id', $post_id)->first();
         if(count($defaultEvaluated) == 0){
