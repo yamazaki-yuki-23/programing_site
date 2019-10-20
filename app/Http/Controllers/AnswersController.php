@@ -79,8 +79,8 @@ class AnswersController extends Controller
         $like_index = 0;
         $defaultLiked = [];
         foreach($multiple_answer_id as $answer_id){
-            $defaultLiked[$like_index] = Like::where([['user_id', Auth::id()],['answer_id', $answer_id],])->first(); 
-            if(count($defaultLiked[$like_index]) == 0) {
+            $defaultLiked[$like_index] = Like::where([['user_id', Auth::id()],['answer_id', $answer_id],])->count(); 
+            if($defaultLiked[$like_index] == 0) {
                 $defaultLiked[$like_index] = false;
             } else {
                 $defaultLiked[$like_index] = true;
@@ -99,8 +99,8 @@ class AnswersController extends Controller
         $defaultGoodCount = Good::where('post_id', $post_id)->count();
 
         //ログインユーザーが高評価ボタンを押下しているか判定
-        $defaultEvaluated = Good::where('user_id', Auth::id())->where('post_id', $post_id)->first();
-        if(count($defaultEvaluated) == 0){
+        $defaultEvaluated = Good::where('user_id', Auth::id())->where('post_id', $post_id)->count();
+        if($defaultEvaluated == 0){
             $defaultEvaluated = false;
         }else{
             $defaultEvaluated = true;

@@ -87,8 +87,8 @@ class QuestionController extends Controller
         $like_index = 0;
         $defaultLiked = [];
         foreach($multiple_answer_id as $answer_id){
-            $defaultLiked[$like_index] = Like::where([['user_id', Auth::id()],['answer_id', $answer_id],])->first(); 
-            if(count($defaultLiked[$like_index]) == 0) {
+            $defaultLiked[$like_index] = Like::where([['user_id', Auth::id()],['answer_id', $answer_id],])->count(); 
+            if($defaultLiked[$like_index] == 0) {
                 $defaultLiked[$like_index] = false;
             } else {
                 $defaultLiked[$like_index] = true;
