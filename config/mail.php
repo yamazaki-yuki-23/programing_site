@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', 'null'),
 
     /*
     |--------------------------------------------------------------------------
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('MAIL_USERNAME',  null),
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('MAIL_PASSWORD', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -119,6 +119,8 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+
+    'pretend' => env('MAIL_PRETEND', false),
 
     /*
     |--------------------------------------------------------------------------
