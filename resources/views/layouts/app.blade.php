@@ -108,8 +108,8 @@
                             </div>
                         </div>                        
                     @else
-                        <a class="zoom"　href="{{route('login') }}">ログイン</a>
-                        <a class="zoom"　href="{{route('register') }}">登録</a>
+                        <a class="zoom"　href="{{route('login') }}" style="font-size:1vw;">ログイン</a>
+                        <a class="zoom"　href="{{route('register') }}" style="font-size:1vw;">登録</a>
                     @endauth
                 </div>
                 <div class="py-5"></div>

@@ -81,31 +81,31 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="total_post" role="tabpanel" aria-labelledby="total-tab">
                                 <div class="card mt-5">
-                                    @foreach ($total_posts as $post)
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                        <p>{{$post->state}}</p>
-                                                    </div>
-                                                    <div class="col-10">
-                                                        <a  href="{{route('show', ['post' => $post->id]) }}">
-                                                            <h2 class="card-title text-left">{{$post->title }}</h2>
-                                                        </a>
-                                                        <h6 class="card-subtitle mb-2 text-left text-muted">{{$post->language}}</h6>
-                                                        <h6 class="card-subtitle mb-2 mr-3 text-right text-muted">投稿日時 {{$post->created_at->format('Y.m.d') }}</h6>
+                                    @if($count_posts === 0)
+                                        <div class="text-center alert alert-info mt-3" role="alert"　style="margin-left:4%; margin-right:8.5%;">まだ回答がついていません</div>
+                                    @else
+                                        @foreach ($total_posts as $post)
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-2">
+                                                            <p style="font-size:1.2vw;">{{$post->state}}</p>
+                                                        </div>
+                                                        <div class="col-10">
+                                                            <a  href="{{route('show', ['post' => $post->id]) }}">
+                                                                <h3 class="card-title text-left">{{$post->title }}</h3>
+                                                            </a>
+                                                            <h6 class="card-subtitle mb-2 text-left text-muted">{{$post->language}}</h6>
+                                                            <h6 class="card-subtitle mb-2 mr-3 text-right text-muted" style="font-size:1.1vw;">投稿日時 {{$post->created_at->format('Y.m.d') }}</h6>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @endforeach
+                                        @endforeach
+                                    @endif
                                     @if($total_posts->hasPages())
                                         <div class="d-flex justify-content-center mt-2 mb-2">
                                             {{ $total_posts->links() }}
-                                        </div>
-                                    @else
-                                        <div class="d-flex justify-content-center mt-2 mb-2">
-                                            <a class="current" href="#"><h4>1</h4></a>
                                         </div>
                                     @endif
                                 </div>
@@ -113,31 +113,31 @@
 
                             <div class="tab-pane fade" id="unsolved_post" role="tabpanel" aria-labelledby="unsolved-tab">
                                 <div class="card mt-5">
-                                    @foreach ($unsolved_post as $post)
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                        <p>{{$post->state}}</p>
-                                                    </div>
-                                                    <div class="col-10">
-                                                        <a  href="{{route('show', ['post' => $post->id]) }}">
-                                                            <h2 class="card-title text-left">{{$post->title }}</h2>
-                                                        </a>
-                                                        <h6 class="card-subtitle mb-2 text-left text-muted">{{$post->language}}</h6>
-                                                        <h6 class="card-subtitle mb-2 mr-3 text-right text-muted">投稿日時 {{$post->created_at->format('Y.m.d') }}</h6>
+                                    @if($count_not_solutions === 0)
+                                        <div class="text-center alert alert-info mt-3" role="alert"　style="margin-left:4%; margin-right:8.5%;">まだ回答がついていません</div>
+                                    @else
+                                        @foreach ($unsolved_post as $post)
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-2">
+                                                            <p style="font-size:1.2vw;">{{$post->state}}</p>
+                                                        </div>
+                                                        <div class="col-10">
+                                                            <a  href="{{route('show', ['post' => $post->id]) }}">
+                                                                <h3 class="card-title text-left">{{$post->title }}</h3>
+                                                            </a>
+                                                            <h6 class="card-subtitle mb-2 text-left text-muted">{{$post->language}}</h6>
+                                                            <h6 class="card-subtitle mb-2 mr-3 text-right text-muted" style="font-size:1.1vw;">投稿日時 {{$post->created_at->format('Y.m.d') }}</h6>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @endforeach
+                                        @endforeach
+                                    @endif
                                     @if($unsolved_post->hasPages())
                                         <div class="d-flex justify-content-center mt-2 mb-2">
                                             {{ $unsolved_post->links() }}
-                                        </div>
-                                    @else
-                                        <div class="d-flex justify-content-center mt-2 mb-2">
-                                            <a class="current" href="#"><h4>1</h4></a>
                                         </div>
                                     @endif
                                 </div>
@@ -145,31 +145,31 @@
 
                             <div class="tab-pane fade" id="solved_post" role="tabpanel" aria-labelledby="solved-tab">
                                 <div class="card mt-5">
-                                    @foreach ($solved_post as $post)
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                        <p>{{$post->state}}</p>
-                                                    </div>
-                                                    <div class="col-10">
-                                                        <a  href="{{route('show', ['post' => $post->id]) }}">
-                                                            <h2 class="card-title text-left">{{$post->title }}</h2>
-                                                        </a>
-                                                        <h6 class="card-subtitle mb-2 text-left text-muted">{{$post->language}}</h6>
-                                                        <h6 class="card-subtitle mb-2 mr-3 text-right text-muted">投稿日時 {{$post->created_at->format('Y.m.d') }}</h6>
+                                    @if($count_solutions === 0)
+                                        <div class="text-center alert alert-info mt-3" role="alert"　style="margin-left:4%; margin-right:8.5%;">まだ回答がついていません</div>
+                                    @else
+                                        @foreach ($solved_post as $post)
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-2">
+                                                            <p style="font-size:1.2vw;">{{$post->state}}</p>
+                                                        </div>
+                                                        <div class="col-10">
+                                                            <a  href="{{route('show', ['post' => $post->id]) }}">
+                                                                <h3 class="card-title text-left">{{$post->title }}</h3>
+                                                            </a>
+                                                            <h6 class="card-subtitle mb-2 text-left text-muted">{{$post->language}}</h6>
+                                                            <h6 class="card-subtitle mb-2 mr-3 text-right text-muted" style="font-size:1.1vw;">投稿日時 {{$post->created_at->format('Y.m.d') }}</h6>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @endforeach
+                                        @endforeach
+                                    @endif
                                     @if($solved_post->hasPages())
                                         <div class="d-flex justify-content-center mt-2 mb-2">
                                             {{ $solved_post->links() }}
-                                        </div>
-                                    @else
-                                        <div class="d-flex justify-content-center mt-2 mb-2">
-                                            <a class="current" href="#"><h4>1</h4></a>
                                         </div>
                                     @endif
                                 </div>
@@ -196,24 +196,28 @@
                             </tbody>
                         </table>
                         <div class="card mt-5">
-                            @foreach ($comment_post as $post)
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-2">
-                                                <p>{{$post->state}}</p>
-                                            </div>
-                                            <div class="col-10">
-                                                <a  href="{{route('show', ['post' => $post->id]) }}">
-                                                    <h2 class="card-title text-left">{{$post->title }}</h2>
-                                                </a>
-                                                <h6 class="card-subtitle mb-2 text-left text-muted">{{$post->language}}</h6>
-                                                <h6 class="card-subtitle mb-2 mr-3 text-right text-muted">投稿日時 {{$post->created_at->format('Y.m.d') }}</h6>
+                            @if($count_answers === 0)
+                                <div class="text-center alert alert-info mt-3" role="alert"　style="margin-left:4%; margin-right:8.5%;">まだ回答がついていません</div>
+                            @else
+                                @foreach ($comment_post as $post)
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <p style="font-size:1.2vw;">{{$post->state}}</p>
+                                                </div>
+                                                <div class="col-10">
+                                                    <a  href="{{route('show', ['post' => $post->id]) }}">
+                                                        <h3 class="card-title text-left">{{$post->title }}</h3>
+                                                    </a>
+                                                    <h6 class="card-subtitle mb-2 text-left text-muted">{{$post->language}}</h6>
+                                                    <h6 class="card-subtitle mb-2 mr-3 text-right text-muted" style="font-size:1.1vw;">投稿日時 {{$post->created_at->format('Y.m.d') }}</h6>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach                            
+                                @endforeach      
+                            @endif                      
                         </div>
                     </div>
                 </div>

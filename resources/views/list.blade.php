@@ -26,10 +26,10 @@
         <div class="card text-center">
             <nav class="bg-light">
                 <div class="nav nav-tabs"  style="height:40px;" >
-                    <a class="col-3" href="{{route('list')}}" ><button type="button"  class="btn btn-outline-info" style="width:80%">新着</button></a>
-                    <a class="col-3" href="{{route('nav', ['item' => 'no_solve'])}}"><button type="button" class="btn btn-outline-info" style="width:80%">未解決</button></a>
-                    <a class="col-3" href="{{route('nav', ['item' => 'solved'])}}"><button type="button" class="btn btn-outline-info" style="width:80%">解決済</button></a>
-                    <a class="col-3" href="{{route('nav', ['item' => 'popular'])}}"><button type="button" class="btn btn-outline-info" style="width:80%">人気</button></a>
+                    <a class="col-3" href="{{route('list')}}" ><button type="button"  class="btn btn-outline-info" id="nav-tag">新着</button></a>
+                    <a class="col-3" href="{{route('nav', ['item' => 'no_solve'])}}"><button type="button" class="btn btn-outline-info" id="nav-tag">未解決</button></a>
+                    <a class="col-3" href="{{route('nav', ['item' => 'solved'])}}"><button type="button" class="btn btn-outline-info" id="nav-tag">解決済</button></a>
+                    <a class="col-3" href="{{route('nav', ['item' => 'popular'])}}"><button type="button" class="btn btn-outline-info" id="nav-tag">人気</button></a>
                 </div>
             </nav>  
 

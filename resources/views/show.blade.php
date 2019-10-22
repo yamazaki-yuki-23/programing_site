@@ -98,7 +98,7 @@
                                 <?php $other_answer_number = count($answers[$answer_index]) ?>  
                                 <div class="text-center mr-5">
                                     <p class="text-left ml-5  border-top mr-5 pt-3">{{$answers[$answer_index][0]->content}}</p>
-                                    <div class="text-right mr-4 mb-3 text-muted"　style="font-size:0.9rem;">
+                                    <div class="text-right mr-4 mb-3 text-muted"　style="font-size:1.1vw;">
                                         <span>{{$answers[$answer_index][0]->answer_name}}さん</span>
                                         <span class="pl-1 mr-3">投稿：{{$answers[$answer_index][0]->created_at}}</span><br>
                                     </div>
@@ -117,14 +117,14 @@
                                     <div class="panel panel-default">
                                         <div class="panel-heading col-6">
                                             <p class="panel-title">
-                                                <a class="pl-2" data-toggle="collapse" href="#collapse{{$answer_index}}">その他の返信(<?php echo $other_answer_number-1 ;?>件)を表示</a>
+                                                <a class="pl-2" data-toggle="collapse" href="#collapse{{$answer_index}}"  style="font-size:1.2vw">その他の返信(<?php echo $other_answer_number-1 ;?>件)を表示</a>
                                             </p>
                                         </div>
                                         <div id="collapse{{$answer_index}}" class="panel-collapse collapse pl-4 pr-5 mb-2 col-11">
                                             <ul class="list-group">
                                                 @for($tmp=1; $tmp<$other_answer_number; $tmp++)
                                                     <li class="list-group-item">{{$answers[$answer_index][$tmp]->content}}
-                                                        <p class="text-right">投稿:{{$answers[$answer_index][$tmp]->created_at}}</p>
+                                                        <p class="text-right" style="font-size:1.1vw;">投稿:{{$answers[$answer_index][$tmp]->created_at}}</p>
                                                         <like
                                                             :answer-id="{{json_encode($answers[$answer_index][$tmp]->id)}}"
                                                             :user-id="{{json_encode($user_id)}}"

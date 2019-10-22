@@ -114,29 +114,29 @@
                     <div class="mr-5">
                         <div class="dropdown">
                             <a class="btn btn-info btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; font-size:1.5em;">
-                                <span style="color:white;">{{Auth::user()->name }}</span>
+                                <span style="color:white; font-size:1.5vw;">{{Auth::user()->name }}</span>
                             </a>
                             <div class="dropdown-menu mr-4">
-                                <a class="dropdown-item" href="{{route('mypage') }}">マイページ</a>
-                                <a class="dropdown-item" href="{{route('getLogout') }}">ログアウト</a>
+                                <a class="dropdown-item" href="{{route('mypage') }}" style="font-size:1.3vw;">マイページ</a>
+                                <a class="dropdown-item" href="{{route('getLogout') }}" style="font-size:1.3vw;">ログアウト</a>
                             </div>
                         </div>
                     </div>
                 @else
-                    <a href="{{route ('login') }}">ログイン</a>
-                    <a href="{{route('register') }}">登録</a>
+                    <a href="{{route ('login') }}" style="font-size:1vw;">ログイン</a>
+                    <a href="{{route('register') }}" style="font-size:1vw;">登録</a>
                 @endauth
             </div>
             <div class="content">
-                <div class="title m-b-md">
-                    TECHQUE    
+                <div class="title">
+                    <span style="font-size:7vw;">TECHQUE</span>
                 </div>
-                <div class="m-b-md">
-                    TECHQUEはプログラミング学習で生じる疑問・問題を解決し、理解を深めるサービスです。
+                <div class="px-5">
+                    <span style="font-size:1.3vw;">TECHQUEはプログラミング学習で生じる疑問・問題を解決し、理解を深めるサービスです。</span>
                 </div>
                 <div class="links">
-                    <a href="{{route('list') }}" style="hover:red">質問を見る</a>
-                    <a href="{{route('ask') }}">質問を投稿する</a>
+                    <a href="{{route('list') }}" style="font-size:1vw;">質問を見る</a>
+                    <a href="{{route('ask') }}" style="font-size:1vw;">質問を投稿する</a>
                 </div>
             </div>
         </div>

@@ -47,8 +47,8 @@
                                     @endif
                                 </div>
                                 
-                                <div class="mt-5">
-                                    <a class="btn btn-secondary" href="{{ route('top') }}">キャンセル</a>
+                                <div class="mt-5 pl-3 row">
+                                    <a class="btn btn-secondary mr-2" href="{{ route('top') }}">キャンセル</a>
                                     <button type="submit" class="btn btn-primary">投稿する</button>
                                 </div>
                             </form>
@@ -56,9 +56,9 @@
                     @else
                         <div class="card-body p-5" >
                             <div class="text-center">
-                                <p>この機能はログイン後に利用できます</p>
-                                <div class="pt-1 pb-3"><a href="{{route('register')}}" class="btn btn-default border border-primary" style="border-radius:50px; width:50%;"><span style="font-size:1.2vw;">初めての方(会員登録)</span></a></div>
-                                <div class="pt-1"><a href="{{route('login')}}" class="btn btn-primary" style="border-radius:50px; width:50%;"><span style="font-size:1.2vw;">ログイン</span></a></div>
+                                <p style="font-size:1.3vw;">この機能はログイン後に利用できます</p>
+                                <div class="pt-1 pb-3"><a href="{{route('register')}}" class="btn btn-default border border-primary" style="border-radius:50px; width:55%; font-size:1.2vw;">新規会員登録</a></div>
+                                <div class="pt-1"><a href="{{route('login')}}" class="btn btn-primary" style="border-radius:50px; width:55%; font-size:1.2vw;">ログイン</a></div>
                             </div>
                         </div>
                     @endauth

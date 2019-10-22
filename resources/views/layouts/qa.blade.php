@@ -84,31 +84,37 @@
                 -webkit-transform: scale(1.1);
                 transform: scale(1.1);
             }
+            #nav-tag{
+                height:100%;
+                width:90%; 
+                font-size:1.3vw;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
         <div id="cover">
             <div id="app">
                 <div class="top-left top">
-                    <a class="zoom" href="{{url('/') }}"  style="font-size:1.5em;">TECHQUE</a>
+                    <a class="zoom" href="{{url('/') }}"  style="style=font-size:1.3vw;">TECHQUE</a>
                 </div>
                 <div class="top-right links">
                     @auth
                         <div class="mr-5">
                             <div class="dropdown">
                                 <a class="btn btn-info btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; font-size:1.5em;">
-                                    <span style="color:white;">{{Auth::user()->name }}</span>
+                                    <span style="color:white; font-size:1.5vw;">{{Auth::user()->name }}</span>
                                 </a>
 
                                 <div class="dropdown-menu mr-4">
-                                    <a class="dropdown-item zoom" href="{{route('mypage')}}">マイページ</a>
-                                    <a class="dropdown-item zoom" href="{{route('getLogout') }}">ログアウト</a>
+                                    <a class="dropdown-item zoom" href="{{route('mypage')}}" style="font-size:1.3vw;">マイページ</a>
+                                    <a class="dropdown-item zoom" href="{{route('getLogout') }}" style="font-size:1.3vw;">ログアウト</a>
                                 </div>
                             </div>
                         </div>
                     @else
-                        <a class="zoom" href="{{route('login') }}">ログイン</a>
-                        <a class="zoom" href="{{route('register') }}">登録</a>
+                        <a class="zoom" href="{{route('login') }}"　style="font-size:1vw;">ログイン</a>
+                        <a class="zoom" href="{{route('register') }}"　style="font-size:1vw;">登録</a>
                     @endauth
                 </div>
                 <div class="py-5"></div>
