@@ -123,20 +123,20 @@
                         </div>
                     </div>
                 @else
-                    <a href="{{route ('login') }}" style="font-size:1vw;">ログイン</a>
-                    <a href="{{route('register') }}" style="font-size:1vw;">登録</a>
+                    <a href="{{route ('login') }}" style="font-size:1.3vw;">ログイン</a>
+                    <a href="{{route('register') }}" style="font-size:1.3vw;">登録</a>
                 @endauth
             </div>
             <div class="content">
                 <div class="title">
-                    <span style="font-size:7vw;">TECHQUE</span>
+                    <span style="font-size:7.5vw;">TECHQUE</span>
                 </div>
                 <div class="px-5">
                     <span style="font-size:1.3vw;">TECHQUEはプログラミング学習で生じる疑問・問題を解決し、理解を深めるサービスです。</span>
                 </div>
                 <div class="links">
-                    <a href="{{route('list') }}" style="font-size:1vw;">質問を見る</a>
-                    <a href="{{route('ask') }}" style="font-size:1vw;">質問を投稿する</a>
+                    <a href="{{route('list') }}" style="font-size:1.3vw;">質問を見る</a>
+                    <a href="{{route('ask') }}" style="font-size:1.3vw;">質問を投稿する</a>
                 </div>
             </div>
         </div>

@@ -87,7 +87,7 @@
             #nav-tag{
                 height:100%;
                 width:90%; 
-                font-size:1.3vw;
+                font-size:1.5vw;
                 text-align: center;
             }
         </style>
