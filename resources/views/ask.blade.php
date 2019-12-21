@@ -1,12 +1,13 @@
-@extends('layouts.qa')
+@extends('layouts.app')
 
-    @section('content')
+@section('content')
+    <div class="container">
         <div class="row justify-content-center">
             <div id="accordion" class="col-8">
                 <div class="card my-4">
                     @auth
-                        <div id="headingReg" class="card-header">質問を投稿する</div>
-                        <div id="reg" class="card-body" aria-labelledby="headingReg" data-parent="#accordion">    
+                        <div id="headingReg" class="card-header" style="background-color:#efefef;">質問を投稿する</div>
+                        <div id="reg" class="card-body" aria-labelledby="headingReg" data-parent="#accordion">
                             <form method="POST" action="{{route('list') }}">
                                 {{csrf_field() }}
                                 <div class="form-group">
@@ -46,7 +47,7 @@
                                         </div>
                                     @endif
                                 </div>
-                                
+
                                 <div class="mt-5 pl-3 row">
                                     <a class="btn btn-secondary mr-2" href="{{ route('top') }}">キャンセル</a>
                                     <button type="submit" class="btn btn-primary">投稿する</button>
@@ -63,7 +64,7 @@
                         </div>
                     @endauth
                 </div>
-            @endsection
+            </div>
         </div>
     </div>
-</div>
+@endsection

@@ -10,7 +10,7 @@
                             <a id="login" href="{{route('top') }}">&times;</a>
                         </button>
                     </div>
-                    
+
                     <div class="card-body">
                         <form method="POST" action="{{route('login') }}">
                             @csrf
@@ -36,7 +36,7 @@
                                             </span>
                                         @endif
                                     </div>
-                                </div> 
+                                </div>
 
                                 <div class="form-group row">
                                     <div class="col-6 offset-4">
@@ -65,4 +65,3 @@
 @endsection
 
 
-                                

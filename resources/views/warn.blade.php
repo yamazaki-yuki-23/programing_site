@@ -1,6 +1,7 @@
-@extends('layouts.qa')
+@extends('layouts.app')
 
-    @section('content')
+@section('content')
+    <div class="container">
         <div class="row justify-content-center">
             <div id="accordion" class="col-md-8">
                 <div class="card my-4">
@@ -12,7 +13,7 @@
                         </div>
                     </div>
                 </div>
-            @endsection
+            </div>
         </div>
     </div>
-</div>
+@endsection

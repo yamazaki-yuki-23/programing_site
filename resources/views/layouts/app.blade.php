@@ -21,16 +21,15 @@
         <style>
             html, body {
                 background-color: #fff;
-                                background-image: url('/image/background.jpg');
-                                /* color: #fff; */
+                background-image: url('/image/background.jpg');
+                background-size: cover;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 margin: 0;
             }
-            #cover {
-                    background-color: rgba(33,33,33,0.4); 
-                    min-height: 100vh;
-            }
+            /* #cover {
+                min-height: 100vh;
+            } */
             .top-right {
                 position: absolute;
                 right: 10px;
@@ -56,7 +55,7 @@
                 margin-right: 10px;
             }
             .lonks > a:hover {
-                    background-color: rgba(0,0,0,0.3);
+                background-color: rgba(0,0,0,0.3);
             }
             .top > a {
                 color: #ffffff;
@@ -84,44 +83,55 @@
                 -webkit-transform: scale(1.1);
                 transform: scale(1.1);
             }
+            #nav-tag {
+                height:100%;
+                width:90%;
+                font-size:1.5vw;
+                text-align: center;
+            }
+            .container {
+                opacity: 0.9;
+            }
+            .header {
+                position: fixed;
+                width: 100%;
+            }
         </style>
     </head>
     <body>
         <div id="cover">
             <div id="app">
-                <div class="top-left top">
-                    <a class="zoom"　href="{{url('/') }}">TOPへ</a>
-                </div>
-                <div class="top-right links">
-                    @auth
-                        <!-- <a href="{{url('/home') }}">{{Auth::user()->name }}</a> -->
-                        <div class="mr-5">
-                            <div class="dropdown">
-                                <a class="btn btn-info btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; font-size:1.5em;">
-                                    <span style="color:white;">{{Auth::user()->name }}</span>
-                                </a>
+                <div class="header">
+                    <div class="top-left top">
+                        <a class="zoom"　href="{{url('/') }}">TOPへ</a>
+                    </div>
+                    <div class="top-right links">
+                        @auth
+                            <div class="mr-5">
+                                <div class="dropdown">
+                                    <a class="btn btn-info btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; font-size:1.5em;">
+                                        <span style="color:white;">{{Auth::user()->name }}</span>
+                                    </a>
 
-                                <div class="dropdown-menu mr-4">
-                                    <a class="dropdown-item" href="{{route('mypage') }}">マイページ</a>
-                                    <a class="dropdown-item" href="{{route('getLogout') }}">ログアウト</a>
+                                    <div class="dropdown-menu mr-4">
+                                        <a class="dropdown-item" href="{{route('mypage') }}">マイページ</a>
+                                        <a class="dropdown-item" href="{{route('getLogout') }}">ログアウト</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>                        
-                    @else
-                        <a class="zoom"　href="{{route('login') }}" style="font-size:1vw;">ログイン</a>
-                        <a class="zoom"　href="{{route('register') }}" style="font-size:1vw;">登録</a>
-                    @endauth
+                        @else
+                            <a class="zoom"　href="{{route('login') }}" style="font-size:1vw;">ログイン</a>
+                            <a class="zoom"　href="{{route('register') }}" style="font-size:1vw;">登録</a>
+                        @endauth
+                    </div>
                 </div>
                 <div class="py-5"></div>
-                <main class="py-5">
+                <main class="py-3">
                     @yield('content')
                 </main>
                 <div class="py-5"></div>
             </div>
         </div>
         <script src=" {{ mix('js/app.js') }} "></script>
-        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
     </body>
 </html>

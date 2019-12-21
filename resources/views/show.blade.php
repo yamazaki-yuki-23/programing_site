@@ -1,17 +1,17 @@
-@extends('layouts.qa')
+@extends('layouts.app')
 
 @section('content')
     <div class="container mt-4">
         <section>
             <div class="card mb-3 ">
-                <div class="bg-light border border-light">
+                <div class="border border-light"　style="background-color:#efefef;">
                     <h1 class="mb-3 ml-3">
                         {{$post->title}}
                     </h1>
                     <div class="ml-3 mb-1">
                         <h6 class="card-subtitle text-left text-muted"><span class="badge badge-primary">{{$post->language}}</span></h6>
                     </div>
-                    <h6 class="card-subtitle text-right text-muted mr-4">{{$post->poster_name}}さん 
+                    <h6 class="card-subtitle text-right text-muted mr-4">{{$post->poster_name}}さん
                         <span class="pl-1">
                             投稿:{{$post->created_at->format('Y.m.d') }}
                         </span>
@@ -43,8 +43,8 @@
                                 ></evaluate>
                             @endif
                         </div>
-                    </div> 
-                </div>    
+                    </div>
+                </div>
 
                 @auth
                     <div class="text-center mr-5  my-5">
@@ -69,7 +69,7 @@
                         </form>
                     </div>
 
-                    
+
                     @if($count_answers === 0)
                         <div class="text-center alert alert-info mt-3" role="alert"　style="margin-left:4%; margin-right:8.5%;">まだ回答がついていません</div>
                     @else
@@ -95,7 +95,7 @@
                                 </div>
                                 <?php $answer_index++; $like_index++; ?>
                             @else
-                                <?php $other_answer_number = count($answers[$answer_index]) ?>  
+                                <?php $other_answer_number = count($answers[$answer_index]) ?>
                                 <div class="text-center mr-5">
                                     <p class="text-left ml-5  border-top mr-5 pt-3">{{$answers[$answer_index][0]->content}}</p>
                                     <div class="text-right mr-4 mb-3 text-muted"　style="font-size:1.1vw;">
@@ -143,7 +143,7 @@
                         @endfor
                         <div class="text-center mr-5 mt-5">
                             <a href="#link">
-                                <input type="button" class="btn btn-warning btn-lg" value="この質問に回答する" />                    
+                                <input type="button" class="btn btn-warning btn-lg" value="この質問に回答する" />
                             </a>
                         </div>
                     @endif
@@ -155,7 +155,7 @@
                         <?php $like_index = 0; ?>
                         <?php $answer_index = 0; ?>
                         <?php $count = count($answers); ?>
-                        @for($answer_number=0; $answer_number<$count_answers; $answer_number++) 
+                        @for($answer_number=0; $answer_number<$count_answers; $answer_number++)
                             @if(count($answers[$answer_index]) === 1)
                                 <div class="text-center mr-5 my-5">
                                     <p class="text-left ml-5  border-top mr-5 pt-3">{{$answers[$answer_index][0]->content}}</p>
@@ -169,7 +169,7 @@
                                 </div>
                                 <?php $answer_index++; $like_index++; ?>
                             @else
-                                <?php $other_answer_number = count($answers[$answer_index]) ?>  
+                                <?php $other_answer_number = count($answers[$answer_index]) ?>
                                 <div class="text-center mr-5 mt-5">
                                     <p class="text-left ml-5  border-top mr-5 pt-3">{{$answers[$answer_index][0]->content}}</p>
                                     <div class="text-right mr-4 mb-3 text-muted"　style="font-size:0.9rem;">
@@ -208,11 +208,11 @@
                     @endif
                     <div class="text-center">
                         <a href="{{route('warn')}}">
-                            <input type="button" class="btn btn-warning btn-lg" value="この質問に回答する">                    
+                            <input type="button" class="btn btn-warning btn-lg" value="この質問に回答する">
                         </a>
                     </div>
                 @endauth
             </div>
         </section>
     </div>
-@endsection   
+@endsection

@@ -10,22 +10,20 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-        
+
         <!-- Styles -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <style>
             html, body {
-                background-color: #fff;
                 color: #fff;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
+                background-image: url('/image/background.jpg');
+                background-size: cover;
             }
 
-            #cover {
-                    background-color: rgba(33,33,33,0.4);
-            }
             .full-height {
                 height: 100vh;
             }
@@ -107,7 +105,7 @@
             }
         </style>
     </head>
-    <body style="background-image: url('/image/background.jpg')">
+    <body>
         <div id="cover" class="flex-center position-lef full-height">
             <div class="top-right links">
                 @auth

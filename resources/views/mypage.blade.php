@@ -1,10 +1,10 @@
-@extends('layouts.qa')
+@extends('layouts.app')
 
 @section('content')
     <div class="container mt-4">
         <div class="card">
             <h3 class="text-primary">{{$user_name}}さんの情報</h3>
-            <ul class="bg-secondary nav nav-tabs">
+            <ul class="nav nav-tabs" style="background-color:#efefef;">
                 <li class="nav-item">
                     <a class="nav-link active" id="profile-tab" href="#home"  data-toggle="tab" role="tab" aria-controls="home" aria-selected="true" style="color:black">成績</a>
                 </li>
@@ -27,10 +27,10 @@
                                     <tbody>
                                         <tr><td>解決済</td><td class="pl-2">{{$count_solutions}}件</td></tr>
                                         <tr><td>解決率</td><td class="pl-2">{{$resolution_rate}}％</td></tr>
-                                        <tr><td>総数</td><td class="pl-2">{{$count_posts}}件</td></tr>                            
-                                        <tr><td>いいねをされた回数</td><td class="pl-2">{{$total_likes}}件</td></tr>                            
+                                        <tr><td>総数</td><td class="pl-2">{{$count_posts}}件</td></tr>
+                                        <tr><td>いいねをされた回数</td><td class="pl-2">{{$total_likes}}件</td></tr>
                                     </tbody>
-                                </table>                    
+                                </table>
                             </div>
                             <div class="card-body col-6">
                                 <h5 class="card-title"><span class="text-warning">回答の成績</span></h5>
@@ -39,9 +39,9 @@
                                         <tr><td>総数</td><td class="pl-2">{{$count_answers}}件</td></tr>
                                         <tr><td>高評価をされた回数</td><td class="pl-2">{{$count_goods}}件</td></tr>
                                     </tbody>
-                                </table>                    
+                                </table>
                             </div>
-                        </div>                    
+                        </div>
                     </div>
                 </div>
 
@@ -62,11 +62,11 @@
                                     <td>{{$count_posts}}件</td>
                                     <td>{{$count_not_solutions}}件</td>
                                     <td>{{$count_solutions}}件</td>
-                                    <td>{{$total_likes}}回</td> 
+                                    <td>{{$total_likes}}回</td>
                                 </tr>
                             </tbody>
                         </table>
-                        <ul class="bg-light nav nav-tabs">
+                        <ul class="nav nav-tabs" style="background-color:#efefef;">
                             <li class="nav-item">
                                 <a class="nav-link active" id="total-tab" href="#total_post"  data-toggle="tab" role="tab" aria-controls="total_post" aria-selected="true" style="color:black">すべて</a>
                             </li>
@@ -216,12 +216,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach      
-                            @endif                      
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection   
+@endsection

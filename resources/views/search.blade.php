@@ -1,4 +1,4 @@
-@extends('layouts.qa')
+@extends('layouts.app')
 
 @section('content')
     <div class="container mt-5">
@@ -7,7 +7,7 @@
                 <div class="panel-heading">
                     <h3 class="text-left pl-5">【{{$keyword}}】の検索結果：{{$count}}件<h3>
                 </div>
-            </nav>  
+            </nav>
             <div class="tab-content" id="nav-tabContent">
                 @if ($count === 0)
                     <div class="mt-5 text-danger" role="alert">選択に一致する質問はありませんでした</div>
@@ -26,7 +26,7 @@
                                             <h4 class="card-title text-left">{{$post->title }}</h4>
                                         </a>
                                         <h6 class="card-subtitle mb-2 text-left text-muted"><span class="badge badge-light">{{$post->language}}</span></h6>
-                                        <h6 class="card-subtitle mb-2 text-right text-muted">{{$post->poster_name}}さん 
+                                        <h6 class="card-subtitle mb-2 text-right text-muted">{{$post->poster_name}}さん
                                             <span class="pl-1">
                                                 投稿日時 {{$post->created_at->format('Y.m.d') }}
                                             </span>
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     @endforeach
-                    
+
                     @if($postList->hasPages())
                     <div class="d-flex justify-content-center mt-4 mb-2">
                         {{ $postList->appends(request()->input())->links() }}
@@ -46,8 +46,8 @@
                             <a class="current" href="#"><h4>1</h4></a>
                         </div>
                     @endif
-                @endif  
+                @endif
             </div>
         </div>
     </div>
-@endsection   
+@endsection

@@ -28,7 +28,7 @@
                 margin: 0;
             }
             #cover {
-                    background-color: rgba(33,33,33,0.4); 
+                    /* background-color: rgba(33,33,33,0.4); */
                     min-height: 100vh;
             }
             .top-right {
@@ -86,7 +86,7 @@
             }
             #nav-tag{
                 height:100%;
-                width:90%; 
+                width:90%;
                 font-size:1.5vw;
                 text-align: center;
             }
