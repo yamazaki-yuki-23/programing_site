@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-2">
         <form method="GET" action="{{ route('search') }}">
             @csrf
             <div class="col-12 clearfix">

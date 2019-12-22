@@ -126,10 +126,9 @@
                     </div>
                 </div>
                 <div class="py-5"></div>
-                <main class="py-3">
+                <main class="py-5">
                     @yield('content')
                 </main>
-                <div class="py-5"></div>
             </div>
         </div>
         <script src=" {{ mix('js/app.js') }} "></script>
