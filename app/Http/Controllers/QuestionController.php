@@ -9,6 +9,7 @@ use App\Answer;
 use App\Like;
 use App\Good;
 use Illuminate\Support\Facades\Auth;
+use cebe\markdown\Markdown as Markdown;
 
 class QuestionController extends Controller
 {
@@ -60,8 +61,10 @@ class QuestionController extends Controller
         }else{
             $defaultState = true;
         }
+        $parser = new Markdown();
         return view('show',[
             'post' => $post,
+            'content' => $parser->parse($post->content),
             'answers' => $answers,
             'count_answers' => $count_answers,
             'user_id' => Auth::id(),
@@ -87,12 +90,12 @@ class QuestionController extends Controller
         $like_index = 0;
         $defaultLiked = [];
         foreach($multiple_answer_id as $answer_id){
-            $defaultLiked[$like_index] = Like::where([['user_id', Auth::id()],['answer_id', $answer_id],])->count(); 
+            $defaultLiked[$like_index] = Like::where([['user_id', Auth::id()],['answer_id', $answer_id],])->count();
             if($defaultLiked[$like_index] == 0) {
                 $defaultLiked[$like_index] = false;
             } else {
                 $defaultLiked[$like_index] = true;
-            }    
+            }
             $like_index++;
         }
         $like_item = [

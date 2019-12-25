@@ -17,7 +17,8 @@
                         </span>
                     </h6>
                     <div class="border-top p-3 mb-1">
-                        <p>{!! nl2br(e($post->content)) !!}</P>
+                        <!-- <div class="item-body">{!! e($post->content) !!}</div> -->
+                        <div>{!! nl2br($content) !!}</div>
                         <div class="row ml-1">
                             @if($user_id == null)
                                 <div class="pr-1">
