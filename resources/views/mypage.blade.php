@@ -82,7 +82,7 @@
                             <div class="tab-pane fade show active" id="total_post" role="tabpanel" aria-labelledby="total-tab">
                                 <div class="card mt-5">
                                     @if($count_posts === 0)
-                                        <div class="text-center alert alert-info mt-3" role="alert"　style="margin-left:4%; margin-right:8.5%;">まだ回答がついていません</div>
+                                        <div class="text-center alert alert-info mt-3" role="alert"　style="margin-left:4%; margin-right:8.5%;">まだ質問を投稿していません</div>
                                     @else
                                         @foreach ($total_posts as $post)
                                             <div class="card">
@@ -114,7 +114,7 @@
                             <div class="tab-pane fade" id="unsolved_post" role="tabpanel" aria-labelledby="unsolved-tab">
                                 <div class="card mt-5">
                                     @if($count_not_solutions === 0)
-                                        <div class="text-center alert alert-info mt-3" role="alert"　style="margin-left:4%; margin-right:8.5%;">まだ回答がついていません</div>
+                                        <div class="text-center alert alert-info mt-3" role="alert"　style="margin-left:4%; margin-right:8.5%;">未解決の質問はありません</div>
                                     @else
                                         @foreach ($unsolved_post as $post)
                                             <div class="card">
@@ -146,7 +146,7 @@
                             <div class="tab-pane fade" id="solved_post" role="tabpanel" aria-labelledby="solved-tab">
                                 <div class="card mt-5">
                                     @if($count_solutions === 0)
-                                        <div class="text-center alert alert-info mt-3" role="alert"　style="margin-left:4%; margin-right:8.5%;">まだ回答がついていません</div>
+                                        <div class="text-center alert alert-info mt-3" role="alert"　style="margin-left:4%; margin-right:8.5%;">解決済の質問はありません</div>
                                     @else
                                         @foreach ($solved_post as $post)
                                             <div class="card">

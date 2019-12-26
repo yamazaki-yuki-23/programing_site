@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function getLogout(){
         Auth::logout();
-        return redirect()->route('top');    
+        return redirect('/')->with('msg_success', 'ログアウトしました');
     }
 
     public function mypage(){
@@ -29,7 +29,7 @@ class UserController extends Controller
             $resolution_rate = 0;
         }else{
             $resolution_rate = $count_solutions / $count_posts * 100;
-            $resolution_rate = floor($resolution_rate);    
+            $resolution_rate = floor($resolution_rate);
         }
         //未解決
         $count_not_solutions = $count_posts - $count_solutions;

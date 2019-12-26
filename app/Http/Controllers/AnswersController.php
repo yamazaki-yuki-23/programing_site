@@ -53,6 +53,7 @@ class AnswersController extends Controller
         }else{
             $defaultState = true;
         }
+        \Session::flash('msg_success', '投稿が完了しました');
         $parser = new Markdown();
         return view('show',[
             'post' => $post,

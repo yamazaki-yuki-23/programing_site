@@ -142,7 +142,7 @@
                                 <?php $answer_index++; ?>
                             @endif
                         @endfor
-                        <div class="text-center mr-5 mt-5">
+                        <div class="text-center mr-5 mt-5 mb-2">
                             <a href="#link">
                                 <input type="button" class="btn btn-warning btn-lg" value="この質問に回答する" />
                             </a>
@@ -207,7 +207,7 @@
                             @endif
                         @endfor
                     @endif
-                    <div class="text-center">
+                    <div class="text-center mb-2">
                         <a href="{{route('warn')}}">
                             <input type="button" class="btn btn-warning btn-lg" value="この質問に回答する">
                         </a>

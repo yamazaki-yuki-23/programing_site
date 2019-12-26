@@ -109,7 +109,7 @@ return [
     ],
     'string'               => ':attribute は文字列のみ有効です',
     'timezone'             => ':attribute 正しいタイムゾーンのみ有効です',
-    'unique'               => ':attribute は既に存在します',
+    'unique'               => ':attribute は既に使用されています',
     'uploaded'             => ':attribute アップロードに失敗しました',
     'url'                  => ':attribute は正しいURL書式のみ有効です',
 
@@ -125,6 +125,7 @@ return [
         'answer' => '回答内容',
         'keyword' => 'キーワード',
         'password' => 'パスワード',
+        'email' => '入力されたメールアドレス',
     ],
 
 ];

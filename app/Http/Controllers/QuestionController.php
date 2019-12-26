@@ -35,7 +35,7 @@ class QuestionController extends Controller
         $post->language = $request->language;
         $post->content = $request->content;
         $post->save();
-        return redirect('list');
+        return redirect('list')->with('msg_success', '投稿が完了しました');
     }
 
     public function show(Answer $answer ,$post_id){
