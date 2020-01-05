@@ -9,7 +9,6 @@ use App\Answer;
 use App\Like;
 use App\Good;
 use Illuminate\Support\Facades\Auth;
-use cebe\markdown\Markdown as Markdown;
 
 class QuestionController extends Controller
 {
@@ -61,10 +60,9 @@ class QuestionController extends Controller
         }else{
             $defaultState = true;
         }
-        $parser = new Markdown();
         return view('show',[
             'post' => $post,
-            'content' => $parser->parse($post->content),
+            'content' => $post->content,
             'answers' => $answers,
             'count_answers' => $count_answers,
             'user_id' => Auth::id(),

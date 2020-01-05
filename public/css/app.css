@@ -10644,3 +10644,123 @@ a.text-dark:focus {
   }
 }
 
+html,
+body {
+  background-color: #fff;
+  background-image: url("/image/background.jpg");
+  background-size: cover;
+  font-family: "Raleway", sans-serif;
+  font-weight: 100;
+  margin: 0;
+}
+
+.top-right {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+
+.top-left {
+  position: absolute;
+  left: 10px;
+  top: 18px;
+}
+
+.links > a {
+  color: #ffffff;
+  padding: 0 25px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: solid 1px #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.lonks > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.top > a {
+  color: #ffffff;
+  font-size: 18px;
+  padding: 0 25px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#login,
+#register {
+  color: black;
+}
+
+.zoom {
+  display: inline-block;
+  transition: 0.3s;
+  transform: scale(1);
+}
+
+.zoom:hover {
+  transform: scale(1.1);
+}
+
+#nav-tag {
+  height: 100%;
+  width: 90%;
+  font-size: 1.5vw;
+  text-align: center;
+}
+
+.container {
+  opacity: 0.9;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+}
+
+.item-body h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.2rem;
+  border-bottom: solid 1px #ddd;
+}
+
+.item-body h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.2rem;
+  border-bottom: solid 1px #ddd;
+}
+
+.item-body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.2rem;
+  border-bottom: solid 1px #ddd;
+}
+
+.item-body pre code {
+  color: white;
+  padding: 1.5rem 1rem;
+  background-color: #364549;
+  width: 100%;
+  display: block;
+}
+
+[v-cloak] {
+  display: none;
+}
+

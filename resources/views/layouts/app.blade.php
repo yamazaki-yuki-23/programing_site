@@ -16,95 +16,16 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-        <style>
-            html, body {
-                background-color: #fff;
-                background-image: url('/image/background.jpg');
-                background-size: cover;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                margin: 0;
-            }
-            /* #cover {
-                min-height: 100vh;
-            } */
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-            .top-left {
-                position: absolute;
-                left: 10px;
-                top: 18px;
-            }
-            .links > a {
-                color: #ffffff;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-                border-bottom: solid 1px #fff;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                margin-left: 10px;
-                margin-right: 10px;
-            }
-            .lonks > a:hover {
-                background-color: rgba(0,0,0,0.3);
-            }
-            .top > a {
-                color: #ffffff;
-                font-size: 18px;
-                padding: 0 25px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                margin-left: 10px;
-                margin-right: 10px;
-            }
-            #login,#register {
-                color:black;
-            }
-            .zoom {
-                display: inline-block;
-                transition: .3s;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-            .zoom:hover {
-                -webkit-transform: scale(1.1);
-                transform: scale(1.1);
-            }
-            #nav-tag {
-                height:100%;
-                width:90%;
-                font-size:1.5vw;
-                text-align: center;
-            }
-            .container {
-                opacity: 0.9;
-            }
-            .header {
-                position: fixed;
-                width: 100%;
-            }
-
-        </style>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" async></script>
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="cover">
-            <div id="app">
+            <div id="app" v-cloak>
                 <div class="header">
                     <div class="top-left top">
                         <a class="zoom"　href="{{url('/') }}">TOPへ</a>
@@ -143,5 +64,10 @@
             @endif
         </script>
         <script src=" {{ mix('js/app.js') }} "></script>
+        <style>
+[v-cloak] {
+  display: none;
+}
+</style>
     </body>
 </html>

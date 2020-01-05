@@ -9,7 +9,6 @@ use App\Answer;
 use App\Like;
 use App\Good;
 use Illuminate\Support\Facades\Auth;
-use cebe\markdown\Markdown as Markdown;
 
 class AnswersController extends Controller
 {
@@ -54,10 +53,9 @@ class AnswersController extends Controller
             $defaultState = true;
         }
         \Session::flash('msg_success', '投稿が完了しました');
-        $parser = new Markdown();
         return view('show',[
             'post' => $post,
-            'content' => $parser->parse($post->content),
+            'content' => $post->content,
             'answers' => $answers,
             'count_answers' => $count_answers,
             'user_id' => Auth::id(),

@@ -17,8 +17,7 @@
                         </span>
                     </h6>
                     <div class="border-top p-3 mb-1">
-                        <!-- <div class="item-body">{!! e($post->content) !!}</div> -->
-                        <div>{!! nl2br($content) !!}</div>
+                        <div class="item-body" id="content"  v-cloak>{{$post->content}}</div>
                         <div class="row ml-1">
                             @if($user_id == null)
                                 <div class="pr-1">
