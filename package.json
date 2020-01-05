@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "marked": "^0.8.0",
-        "promise": "^8.0.3"
+        "promise": "^8.0.3",
+        "laravel-mix": "^4.0.7",
     }
 }
