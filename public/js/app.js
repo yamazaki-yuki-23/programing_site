@@ -51596,27 +51596,26 @@ Vue.component('solve', __webpack_require__(/*! ./components/solve.vue */ "./reso
 
 var app = new Vue({
   el: '#app'
-});
-var content = new Vue({
-  el: '#content',
-  created: $(function () {
-    marked__WEBPACK_IMPORTED_MODULE_1___default.a.setOptions({
-      langPrefix: '',
-      breaks: true,
-      sanitize: true
-    });
-    var target = $('.item-body');
-    var html = marked__WEBPACK_IMPORTED_MODULE_1___default()(getHtml(target.html()));
-    $('.item-body').html(html); // 比較演算子が &lt; 等になるので置換
-
-    function getHtml(html) {
-      html = html.replace(/&lt;/g, '<');
-      html = html.replace(/&gt;/g, '>');
-      html = html.replace(/&amp;/g, '&');
-      return html;
-    }
-  })
-});
+}); // const content = new Vue({
+//     el: '#content',
+//     created: $(function() {
+//         marked.setOptions({
+//             langPrefix: '',
+//             breaks : true,
+//             sanitize: true,
+//         });
+//         var target = $('.item-body')
+//         var html = marked(getHtml(target.html()));
+//         $('.item-body').html(html);
+//         // 比較演算子が &lt; 等になるので置換
+//         function getHtml(html) {
+//             html = html.replace(/&lt;/g, '<');
+//             html = html.replace(/&gt;/g, '>');
+//             html = html.replace(/&amp;/g, '&');
+//             return html;
+//         }
+//     })
+// });
 
 /***/ }),
 

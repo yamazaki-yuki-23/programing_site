@@ -63,6 +63,26 @@
                     toastr.success('{{ session('msg_success') }}');
                 });
             @endif
+
+            $(function() {
+                marked.setOptions({
+                    langPrefix: '',
+                    breaks : true,
+                    sanitize: true,
+                });
+
+                var target = $('.item-body')
+                var html = marked(getHtml(target.html()));
+                $('.item-body').html(html);
+
+                function getHtml(html) {
+                    html = html.replace(/&lt;/g, '<');
+                    html = html.replace(/&gt;/g, '>');
+                    html = html.replace(/&amp;/g, '&');
+                    return html;
+                }
+            });
+
         </script>
         <script src=" {{ mix('js/app.js') }} "></script>
         <style>
