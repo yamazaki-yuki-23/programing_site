@@ -13,7 +13,7 @@
 
 Route::get('/', 'TopController@index')->name('top');
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/list', 'QuestionController@index')->name('list');
 Route::get('/ask', 'QuestionController@ask')->name('ask');
 Route::post('/list', 'QuestionController@store')->middleware('auth');
